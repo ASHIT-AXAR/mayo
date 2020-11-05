@@ -17,7 +17,7 @@ clone_folder: c:\projects\mayo
 
 before_build:
   - dir C:\Qt
-  - dir C:\Qt\5.14.2\msvc2017_64
+  - dir C:\Qt\5.13\msvc2017_64
   - set PATH=C:\\Qt\\5.14.2\\msvc2017_64\\bin;%PATH%
   - qmake --version
   - echo NUMBER_OF_PROCESSORS=%NUMBER_OF_PROCESSORS%
