@@ -13,8 +13,8 @@ clone_folder: c:\projects\mayo
 
 install:
   - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;%PATH%
-  - ps: Invoke-WebRequest -Uri http://www.fougue.pro/share/bin/OpenCASCADE-7.4.0-vc14-64.zip -OutFile .\OpenCASCADE-7.4.0-vc14-64.zip
-  - 7z e OpenCASCADE-7.4.0-vc14-64.zip
+  - ps: Invoke-WebRequest -Uri http://www.fougue.pro/share/bin/OpenCASCADE-7.4.0-vc14-64.rar -OutFile .\OpenCASCADE-7.4.0-vc14-64.rar
+  - 7z x OpenCASCADE-7.4.0-vc14-64.rar
 
 before_build:
   - echo NUMBER_OF_PROCESSORS=%NUMBER_OF_PROCESSORS%
@@ -25,6 +25,7 @@ build_script:
   - cd build
   - qmake ..\mayo.pro
   - nmake
+  - cd ..
 
 on_success:
 - ps: >-
