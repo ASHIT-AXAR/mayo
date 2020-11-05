@@ -18,18 +18,26 @@ before_build:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - call "OpenCASCADE-7.4.0-vc14-64\opencascade-7.4.0\env.bat"
   - set PATH=C:\Qt\5.13\msvc2017_64\bin;%PATH%
+  - set PATH=C:\Qt\Tools\QtCreator\bin;%PATH%
   - qmake --version
 
 build_script:
   - mkdir build
   - cd build
   - qmake ..\mayo.pro
-  - nmake
+  - jom -j2
   - cd ..
 
+test_script:
+  - mkdir build-tests
+  - cd build-tests
+  - qmake ..\tests\mayo_tests.pro
+  - jom -j2
+  - release\mayo_tests.exe
+
 on_success:
-- ps: >-
-    if ($true)
-    {
-      Write-Host "Success"
-    }
+  - ps: >-
+      if ($true)
+      {
+          Write-Host "Success"
+      }
