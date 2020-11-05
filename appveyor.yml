@@ -16,7 +16,10 @@ install:
   - 7z x OpenCASCADE-7.4.0-vc14-64.rar
 
 before_build:
-  - set PATH=C:\Qt\5.14.2\msvc2017_64\bin;%PATH%
+  - cd C:\Qt\5.14.2\msvc2017_64\bin
+  - qmake --version
+  - c:\projects\mayo
+  - set PATH=C:\\Qt\\5.14.2\\msvc2017_64\\bin;%PATH%
   - qmake --version
   - echo NUMBER_OF_PROCESSORS=%NUMBER_OF_PROCESSORS%
   - call "OpenCASCADE-7.4.0-vc14-64\opencascade-7.4.0\env.bat"
