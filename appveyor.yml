@@ -14,7 +14,6 @@ install:
   - 7z x OpenCASCADE-7.4.0-vc14-64.rar
 
 before_build:
-  - echo NUMBER_OF_PROCESSORS=%NUMBER_OF_PROCESSORS%
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - call "OpenCASCADE-7.4.0-vc14-64\opencascade-7.4.0\env.bat"
   - set PATH=C:\Qt\5.13\msvc2017_64\bin;%PATH%
@@ -25,14 +24,14 @@ build_script:
   - mkdir build
   - cd build
   - qmake ..\mayo.pro
-  - jom -j2
+  - jom -j%NUMBER_OF_PROCESSORS%
   - cd ..
 
 test_script:
   - mkdir build-tests
   - cd build-tests
   - qmake ..\tests\mayo_tests.pro
-  - jom -j2
+  - jom -j%NUMBER_OF_PROCESSORS%
   - release\mayo_tests.exe
 
 on_success:

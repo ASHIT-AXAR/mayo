@@ -3,6 +3,7 @@
 </p>
 
 [![Build status](https://ci.appveyor.com/api/projects/status/6d1w0d6gw28npxpf?svg=true)](https://ci.appveyor.com/project/HuguesDelorme/mayo)
+[![License](https://img.shields.io/badge/license-BSD%202--clause-blue.svg)](https://github.com/fougue/mayo/blob/develop/LICENSE.txt)
 
 # What is Mayo
 Mayo is a 3D viewer and converter inspired by FreeCad
